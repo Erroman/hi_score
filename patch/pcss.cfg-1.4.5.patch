@@ -1,0 +1,17 @@
+--- js/vendor/pcss.cfg-1.4.5.js	2017-12-03 23:39:47.026512706 -0800
++++ js/vendor/pcss.cfg-1.4.5.js	2018-05-28 19:52:08.147899314 -0700
+@@ -1,4 +1,4 @@
+-/* PowerCSS config - pcss.cfg.js
++/* PowerCSS config - xhiCSS.cfg.js
+  * Stock configurations for run-time generated and managed CSS
+  * Michael S. Mikowski - mike.mikowski@gmail.com
+  * See README.md for further documentation.
+@@ -11,7 +11,7 @@
+ */
+ /*global */
+ 
+-var __ns = 'pcss', __NS;
++var __ns = 'xhiCSS', __NS;
+ /* istanbul ignore next */
+ try          { __NS = global[ __ns ]; }
+ catch ( e1 ) { __NS = window[ __ns ]; }

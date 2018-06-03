@@ -1,0 +1,165 @@
+--- js/vendor/pcss-1.4.5.js	2018-06-02 19:02:15.562321495 -0700
++++ js/vendor/pcss-1.4.5.js	2018-06-02 19:02:17.474275163 -0700
+@@ -1,4 +1,4 @@
+-/* PowerCSS - pcss.js
++/* PowerCSS - xhiCSS.js
+  * Run-time generated and managed CSS
+  * Michael S. Mikowski - mike.mikowski@gmail.com
+  * See README.md for further documentation.
+@@ -12,7 +12,7 @@
+ /*global Event */
+ 
+ // == BEGIN MODULE PCSS ===============================================
+-var pcss = (function () {
++var xhiCSS = (function () {
+   'use strict';
+   // == BEGIN 1. MODULE SCOPE VARIABLES ===============================
+   //noinspection MagicNumberJS
+@@ -175,7 +175,7 @@
+   /* istanbul ignore next */
+   publishEvent = (function publishEvent () {
+     var
+-      initEventName = '_pcss_init_',
++      initEventName = '_xhiCSS_init_',
+ 
+       initEventObj,   isCapable,
+       createError,    createModeStr,
+@@ -892,7 +892,7 @@
+       cascade_map._merged_mixin_map_     = result_map._merged_mixin_map_;
+       cascade_map._merged_selector_ms_   = now_ms;
+       cascade_map._mixin_ms_             = now_ms;
+-      publishEvent( '_pcss_merged_', cascade_id );
++      publishEvent( '_xhiCSS_merged_', cascade_id );
+     }
+     if ( regen_type === '_merge_' ) { return regen_type; }
+     // end 2.13.3
+@@ -904,7 +904,7 @@
+         cascade_map._merged_mixin_map_
+       );
+       cascade_map._css_ms_ = now_ms;
+-      publishEvent( '_pcss_prepared_', cascade_id );
++      publishEvent( '_xhiCSS_prepared_', cascade_id );
+     }
+     if ( regen_type === '_prepare_' ) { return regen_type; }
+     // end 2.13.4
+@@ -930,7 +930,7 @@
+       stateMap._style_el_idx_    = write_idx;
+       stateMap._active_rule_map_ = __undef;
+       stateMap._el_cascade_list_[ write_idx ] = cascade_id;
+-      publishEvent( '_pcss_used_', cascade_id );
++      publishEvent( '_xhiCSS_used_', cascade_id );
+     }
+     // end 2.13.5
+     return regen_type;
+@@ -991,11 +991,11 @@
+   // == BEGIN 4. PUBLIC METHODS =======================================
+   // 4.1 Public method /initModule/
+   // ------------------------------
+-  // Example   | pcss._initModule_({ _style_el_prefix_ : 'ns' });
++  // Example   | xhiCSS._initModule_({ _style_el_prefix_ : 'ns' });
+   // Purpose   | Initializes style elements using the provided prefix
+   // Arguments | _style_el_prefix_ :
+   //           | Optional: A prefix to name-space the two style elements
+-  //           | If not provided, the prefix 'pcss' will be used.
++  //           | If not provided, the prefix 'xhiCSS' will be used.
+   // Settings  | none
+   // Throws    | A string error object if style elements already exist
+   // Returns   | The style prefix, e.g. 'ns-'
+@@ -1004,7 +1004,7 @@
+     // 4.1.1 init and args
+     var
+       opt_map         = arg_map || {},
+-      style_el_prefix = opt_map._style_el_prefix_ || 'pcss',
++      style_el_prefix = opt_map._style_el_prefix_ || 'xhiCSS',
+       css_key_map     = opt_map._css_key_map_,
+       css_val_map     = opt_map._css_val_map_
+       ;
+@@ -1019,11 +1019,11 @@
+ 
+     // 4.1.3 Initialize cssKeyMap and cssValMap
+     if ( css_key_map === __undef ) {
+-      css_key_map = pcss._cfg_ && pcss._cfg_._cssKeyMap_;
++      css_key_map = xhiCSS._cfg_ && xhiCSS._cfg_._cssKeyMap_;
+       cssKeyMap = css_key_map;
+     }
+     if ( css_val_map === __undef ) {
+-      css_val_map = pcss._cfg_ && pcss._cfg_._cssValMap_;
++      css_val_map = xhiCSS._cfg_ && xhiCSS._cfg_._cssValMap_;
+       cssValMap = css_val_map;
+     }
+ 
+@@ -1035,7 +1035,7 @@
+ 
+   // 4.2 Public method /togglePcss/
+   // ------------------------------
+-  // Example   | pcss._togglePcss_( true );
++  // Example   | xhiCSS._togglePcss_( true );
+   // Purpose   | Enable or disable PowerCSS
+   // Arguments | boolean (optional)
+   //           | If not provided, will toggle PowerCSS on or off.
+@@ -1063,7 +1063,7 @@
+   // end 4.2 Public method /togglePcss/
+ 
+   // 4.3 Public method /setGlobalMixinMap/
+-  // Example   | pcss._setGlobalMixinMap_({
++  // Example   | xhiCSS._setGlobalMixinMap_({
+   //           |   _change_type_ : '_replace_' or '_merge_'
+   //           |   _mixin_map_ : mixin_map
+   //           | });
+@@ -1125,10 +1125,10 @@
+ 
+   // 4.4 Public method /getAssetIdList/
+   // ----------------------------------
+-  // Example   | vsheet_id_list = pcss._getAssetIdList_({
++  // Example   | vsheet_id_list = xhiCSS._getAssetIdList_({
+   //           |   _asset_type_ : '_vsheet_'
+   //           | });
+-  //           | cascade_id_list = pcss._getAssetIdList_({
++  //           | cascade_id_list = xhiCSS._getAssetIdList_({
+   //           |   _asset_id_ : '_cascade_'
+   //           | });
+   // Purpose   | Return the list of all vsheets or cascades.
+@@ -1167,7 +1167,7 @@
+   // end 4.4 Public method /getAssetIdList/
+ 
+   // 4.5 Public method /getAssetJson/
+-  // Example   | pcss._getAssetJson_({
++  // Example   | xhiCSS._getAssetJson_({
+   //           |   _asset_id_      : '_c01_',
+   //           |   _asset_type_    : '_cascade_'
+   //           |   _asset_subtype_ : '_vsheet_id_list_'
+@@ -1235,7 +1235,7 @@
+   // . END 4.5 Public method /getAssetJson/
+ 
+   // 4.6 Public method /setVsheet/
+-  // Example   | pcss._setVsheet_({
++  // Example   | xhiCSS._setVsheet_({
+   //           |   _vsheet_id_     : '_base_',
+   //           |   _mode_str_      : '_add_',
+   //           |   _selector_list_ : base_selector_list,
+@@ -1360,7 +1360,7 @@
+ 
+   // 4.7 Public method /setCascade/
+   // ------------------------------
+-  // Example   | pcss._setCascade_({
++  // Example   | xhiCSS._setCascade_({
+   //           |   _cascade_id_     : '_c01_',
+   //           |   _mode_str_       : '_add_',
+   //           |   _vsheet_id_list_ : [ '_base_', '_box_' ],
+@@ -1485,7 +1485,7 @@
+ 
+   // 4.10 Public method /setStyleAttr/
+   // ---------------------------------
+-  // Example   | pcss._setStyleAttr_({
++  // Example   | xhiCSS._setStyleAttr_({
+   //           |   _selector_str_   : '.my_class',
+   //           |   _attr_key_       : 'font-size',
+   //           |   _attr_val_       : '12pt'
+@@ -1551,6 +1551,6 @@
+ 
+ // == BEGIN 5. BROWSER AND NODE SUPPORT ===============================
+ /* istanbul ignore next */
+-try { module.exports = pcss; }
++try { module.exports = xhiCSS; }
+ catch ( ignore ) {}
+ // == 5 . END BROWSER AND NODE SUPPORT ===================================
